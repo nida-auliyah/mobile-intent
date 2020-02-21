@@ -17,13 +17,18 @@ public class  ProfileParcelableActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_parcelable);
-
+        usernameText = findViewById(R.id.text_username);
+        nameText = findViewById(R.id.text_name);
+        ageText = findViewById(R.id.text_age);
 
         // TODO: bind here
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-
+            User user =extras.getParcelable(ParcelableActivity.USER_KEY);
+            usernameText.setText(user.getUsername());
+            nameText.setText(user.getName());
+            ageText.setText(user.getAge());
             // TODO: display value here
         }
     }

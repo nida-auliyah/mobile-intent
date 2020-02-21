@@ -28,7 +28,7 @@ public class ParcelableActivity extends AppCompatActivity {
     }
 
 
-    public void handleSubmitParcelable(View view) {
+    public void handleSubmit(View view) {
         String username = usernameInput.getText().toString();
         String name = nameInput.getText().toString();
         int age = Integer.parseInt(ageInput.getText().toString());
