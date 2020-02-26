@@ -1,3 +1,4 @@
+
 package id.ac.polinema.intent;
 
 import android.os.Bundle;
@@ -7,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import id.ac.polinema.intent.model.User;
 
-public class  ProfileParcelableActivity extends AppCompatActivity {
+import static id.ac.polinema.intent.ParcelableActivity.USER_KEY;
 
+public class ProfileParcelableActivity extends AppCompatActivity {
     private TextView usernameText;
     private TextView nameText;
     private TextView ageText;
@@ -17,19 +19,19 @@ public class  ProfileParcelableActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_parcelable);
+
+        // TODO: bind here
         usernameText = findViewById(R.id.text_username);
         nameText = findViewById(R.id.text_name);
         ageText = findViewById(R.id.text_age);
 
-        // TODO: bind here
+        User u = getIntent().getParcelableExtra(USER_KEY);
+        if (u != null) {
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            User user =extras.getParcelable(ParcelableActivity.USER_KEY);
-            usernameText.setText(user.getUsername());
-            nameText.setText(user.getName());
-            ageText.setText(user.getAge());
             // TODO: display value here
+            usernameText.setText(u.getUsername());
+            nameText.setText(u.getName());
+            ageText.setText(Integer.toString(u.getAge()));
         }
     }
 }
